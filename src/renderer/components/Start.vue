@@ -15,7 +15,7 @@
       </v-flex>
       <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm4 md4 lg4 xl4 pa-3>
         <!-- <router-link to="/settings"> -->
-        <v-btn fab class="btn_size white--text" color="green" to="/settings">
+        <v-btn fab class="btn_size white--text" color="green" v-on:click="goSettignsWindow">
           <v-icon size="60">settings</v-icon>
         </v-btn>
         <!-- </router-link> -->
@@ -50,6 +50,10 @@ export default {
 
       store.delete("unicorn");
       console.log(store.get("unicorn"));
+    },
+    // 何故かtoで画面遷移するとiconが中心からずれるため
+    goSettignsWindow: function() {
+      this.$router.replace("/settings");
     },
     // コメントを流すウィンドウ
     createCommentWindow: function() {

@@ -1,7 +1,7 @@
 <template>
   <v-form>
     <!-- <div></div> -->
-    <v-btn fab class="white--text" color="red" to="/">
+    <v-btn fab class="white--text" color="red" v-on:click="goStartWindow()">
       <v-icon>arrow_back</v-icon>
     </v-btn>
     <v-container>
@@ -31,29 +31,17 @@ export default {
       slackToken: ""
     };
   },
-  // mounted: {
-  //   setSlackToken: function() {
-  //     const Store = require("electron-store");
-  //     const store = new Store();
-  //     this.slackToken = store.get("SLACK_XOXB_TOKEN");
-  //     // store.set("SLACK_XOXB_TOKEN", this.slackToken);
-  //     // console.log(store.get("SLACK_XOXB_TOKEN"));
-  //   }
-  // },
+
   methods: {
     setSlackToken: function() {
       const Store = require("electron-store");
       const store = new Store();
       store.set("SLACK_XOXB_TOKEN", this.slackToken);
       console.log(store.get("SLACK_XOXB_TOKEN"));
-      //=> '🦄'
-      // Use dot-notation to access nested properties
-      // store.set("foo.bar", true);
-      // console.log(store.get("foo"));
-      //=> {bar: true}
-
-      // store.delete("unicorn");
-      // console.log(store.get("unicorn"));
+    },
+    // 何故かtoで画面遷移するとiconが中心からずれるため
+    goStartWindow: function() {
+      this.$router.replace("/");
     }
   }
 };
