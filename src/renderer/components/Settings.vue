@@ -31,12 +31,12 @@ export default {
       slackToken: ""
     };
   },
+  // 起動時に自動で呼ばれる
   created: function() {
     const Store = require("electron-store");
     const store = new Store();
     this.slackToken = store.get("SLACK_XOXB_TOKEN");
     console.log(this.slackToken);
-    return this.slackToken;
   },
 
   methods: {

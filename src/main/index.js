@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, ipcMain, BrowserWindow } from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -9,11 +9,18 @@ if (process.env.NODE_ENV !== 'development') {
 }
 
 let mainWindow
+let commentWindow
+
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
-function createWindow () {
+const commnetWinURL = process.env.NODE_ENV === 'development'
+  ? `http://localhost:9080/#/message`
+  : `file://${__dirname}/index.html/#/message`
+function createWindow() {
+  const Screen = require('electron').screen
+  const size = Screen.getPrimaryDisplay().size // ディスプレイのサイズを取得
   /**
    * Initial window options
    */
@@ -22,12 +29,27 @@ function createWindow () {
     useContentSize: true,
     width: 1000
   })
-
   mainWindow.loadURL(winURL)
+  
+  commentWindow = new BrowserWindow({
+    left: 0,
+    top: 0,
+    height: size.height,
+    width: size.width,
+    transparent: true, // 背景を透明
+    frame: false, // ウィンドウフレームを非表示
+    toolbar: false, // toolbarを非表示
+    'always-on-top': true // 一番手前に表示
+  })
+  // 透明な部分のマウスのクリックを検知させない
+  commentWindow.setIgnoreMouseEvents(true)
+  commentWindow.loadURL(commnetWinURL)
 
   mainWindow.on('closed', () => {
     mainWindow = null
+    commentWindow = null
   })
+
 }
 
 app.on('ready', createWindow)
