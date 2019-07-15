@@ -1,5 +1,5 @@
 <template>
-  <v-app dark style="background: rgba(0,0,0,0);">
+  <v-app dark class="my_backgound">
     <v-content>
       <transition name="fade" mode="out-in">
       <router-view></router-view>
@@ -39,7 +39,7 @@ body {
 } */
 
 .my_backgound {
-  background-color: rgb(51, 51, 51);
+  background: rgba(0,0,0,0);
 }
 
 /*
