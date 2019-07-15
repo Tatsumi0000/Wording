@@ -18,7 +18,8 @@ const winURL = process.env.NODE_ENV === 'development' ?
 
 const commnetWinURL = process.env.NODE_ENV === 'development' ?
     `http://localhost:9080/#/message` :
-    `file://${__dirname}/index.html/#/message`
+    `file://${__dirname}/index.html#message`
+    
 function createWindow() {
   const Screen = require('electron').screen
   const size = Screen.getPrimaryDisplay().size  // ディスプレイのサイズを取得
@@ -30,6 +31,7 @@ function createWindow() {
     useContentSize: true,
     resizable: false,  // ウィンドウサイズ変更不可
     width: 600,
+    // backgroundColor: '#ffff00'
     backgroundColor: '#303030'  // ウィンドウ自体の背景色
   })
   mainWindow.loadURL(winURL)
