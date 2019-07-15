@@ -2,7 +2,7 @@
   <v-app dark class="my_backgound">
     <v-content>
       <transition name="fade" mode="out-in">
-      <router-view></router-view>
+        <router-view></router-view>
       </transition>
     </v-content>
   </v-app>
@@ -15,13 +15,9 @@ export default {
   name: "wording",
   components: {},
   data() {
-    myStyle: `style="background: rgba(0,0,0,0);"`;
-    return {
-      isDark: true,
-      isLight: true,
-      methods: {}
-    };
-  }
+    return {};
+  },
+  methods: {}
 };
 </script>
 
@@ -39,7 +35,7 @@ body {
 } */
 
 .my_backgound {
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
 }
 
 /*
