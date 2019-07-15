@@ -1,8 +1,8 @@
 <template>
-  <v-app dark>
+  <v-app dark style="background: rgba(0,0,0,0);">
     <v-content>
       <transition name="fade" mode="out-in">
-      <router-view />
+      <router-view></router-view>
       </transition>
     </v-content>
   </v-app>
@@ -15,14 +15,29 @@ export default {
   name: "wording",
   components: {},
   data() {
+    myStyle: `style="background: rgba(0,0,0,0);"`;
     return {
-      methods: function() {}
+      isDark: true,
+      isLight: true,
+      methods: {}
     };
   }
 };
 </script>
 
 <style scoped>
+/* html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-app-region: drag;
+  background-color: rgba(255, 0, 0, 0.5);
+} */
+
 .my_backgound {
   background-color: rgb(51, 51, 51);
 }

@@ -1,11 +1,11 @@
-<template>
+<template dark>
   <!-- <v-app> -->
   <v-container>
     <v-layout row>
       <!-- text-XX-centerで中央寄せにする -->
       <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm4 md4 lg4 xl4 pa-3>
         <v-btn fab class="btn_size white--text" v-on:click="createCommentWindow()" color="red">
-          <v-icon size="60">android</v-icon>
+          <v-icon size="60">play_arrow</v-icon>
         </v-btn>
       </v-flex>
       <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm4 md4 lg4 xl4 pa-3>
