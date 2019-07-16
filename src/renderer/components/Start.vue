@@ -1,19 +1,16 @@
 <template dark>
   <!-- <v-app> -->
-  <v-container >
+  <v-container>
     <v-layout row>
       <!-- text-XX-centerで中央寄せにする -->
-      <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm4 md4 lg4 xl4 pa-3>
-        <v-btn fab class="btn_size white--text" v-on:click="createCommentWindow()" color="red">
-          <v-icon size="60">play_arrow</v-icon>
+      <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm6 md6 lg6 xl6 pa-3>
+        <v-btn fab class="btn_size white--text" v-on:click="startCommnet()" color="red">
+          <v-icon v-if="show" size="60">play_arrow</v-icon>
+          <v-icon v-else size="60">pause</v-icon>
         </v-btn>
       </v-flex>
-      <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm4 md4 lg4 xl4 pa-3>
-        <v-btn fab class="btn_size white--text" v-on:click="original2" color="blue">
-          <v-icon size="60">pause</v-icon>
-        </v-btn>
-      </v-flex>
-      <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm4 md4 lg4 xl4 pa-3>
+
+      <v-flex text-sm-center text-md-center text-lg-center text-xl-center sm6 md6 lg6 xl6 pa-3>
         <!-- <router-link to="/settings"> -->
         <v-btn fab class="btn_size white--text" color="green" v-on:click="goSettignsWindow">
           <v-icon size="60">settings</v-icon>
@@ -26,9 +23,11 @@
 </template>
 
 <script>
+let rtm;
 export default {
   data() {
     return {
+      show: true,
       icons: [
         { color: "red", icon_name: "play_arrow" },
         { color: "blue", icon_name: "pause" },
@@ -55,24 +54,6 @@ export default {
     goSettignsWindow: function() {
       this.$router.replace("/settings");
     },
-    // コメントを流すウィンドウ
-    createCommentWindow: function() {
-      // const { BrowserWindow } = require("electron");
-      // const url = `http://localhost:8080/#/showMessages`;
-      // commentWindow = new BrowserWindow({
-      //   width: 600,
-      //   height: 800
-      //   // transparent: true,
-      //   // frame: false,
-      //   // toolbar: false
-      //});
-      // commentWindow.loadURL(url);
-
-      //window.open();
-      commentWindow.open();
-      // goSettings: function() {
-      //   this.$router.replace("/settings");
-    },
     startCommnet: function() {
       const { RTMClient } = require("@slack/rtm-api");
       const Store = require("electron-store");
@@ -80,13 +61,20 @@ export default {
       // 設定ファイルから呼び出す
       const token = store.get("SLACK_XOXB_TOKEN");
       console.log(token);
-      const rtm = new RTMClient(token);
-      rtm.start().catch(console.error);
-
-      // メッセージ受信を開始
-      rtm.on("message", event => {
-        console.log(event);
-      });
+      //ture 通信を開始してメッセージを受信
+      if (this.show) {
+        rtm = new RTMClient(token);
+        rtm.start().catch(console.error);
+        // メッセージ受信を開始
+        rtm.on("message", event => {
+          console.log(event);
+        });
+        // false 通信を切断
+      } else {
+        rtm.disconnect();
+      }
+      console.log(this.show);
+      this.show = !this.show;
     }
   }
 };
