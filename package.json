@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Tatsumi0000 <ti18027@student.miyazaki-u.ac.jp>",
   "description": "An electron-vue project",
-  "license": null,
+  "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
@@ -23,7 +23,8 @@
       "output": "build"
     },
     "files": [
-      "dist/electron/**/*"
+      "dist/electron/**/*",
+      "./icons/**/*"
     ],
     "dmg": {
       "contents": [
@@ -41,13 +42,13 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/icon.icns"
+      "icon": "./icons/AppIcon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "./icons/AppIcon.ico"
     },
     "linux": {
-      "icon": "build/icons"
+      "icon": "./icons/AppIcon.icns"
     }
   },
   "dependencies": {
