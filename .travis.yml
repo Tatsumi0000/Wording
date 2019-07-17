@@ -1,3 +1,4 @@
+# 並列処理を書くところ？
 matrix:
   include:
     - os: osx
@@ -8,10 +9,16 @@ matrix:
 # インストールする前に実行する
 before_install:
   - brew install yarn
+  # Windows用にビルドするために必要
   - brew install wine
-
-install:
+  # ライブラリのインストール
   - yarn install
 
+# ここでテスト用のスクリプト実行
 script:
   - yarn run build
+
+# デプロイ設定
+deploy:
+  # GitHub Releasesにリリースする
+  provider: releases
