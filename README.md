@@ -3,7 +3,6 @@
 <div align="center">
 <br>
 <img width="200" src="https://github.com/Tatsumi0000/Wording/blob/develop/icons/AppIcon.png" alt="electron-vue">
-<br>
   
   [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
   
