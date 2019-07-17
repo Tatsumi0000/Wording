@@ -12,13 +12,13 @@
             label="BOTのトークンを登録します．"
             placeholder="xoxbの方のトークンを登録します．"
             v-model="slackToken"
-          ></v-text-field>
+          >{{ slackToken }}</v-text-field>
         </v-flex>
         <v-flex xs3 sm3 md3 lg3 xl3 pa-3>
           <v-btn class="white--text" color="red" @click="setSlackToken">登録</v-btn>
         </v-flex>
       </v-layout>
-      <p>{{ slackToken }}</p>
+      <!-- <p>{{ slackToken }}</p> -->
     </v-container>
   </v-form>
   <!-- <h1>ここに設定画面を作っていくよ</h1> -->
@@ -30,6 +30,13 @@ export default {
     return {
       slackToken: ""
     };
+  },
+  // 起動時に自動で呼ばれる
+  created: function() {
+    const Store = require("electron-store");
+    const store = new Store();
+    this.slackToken = store.get("SLACK_XOXB_TOKEN");
+    console.log(this.slackToken);
   },
 
   methods: {

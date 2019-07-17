@@ -1,8 +1,35 @@
+
+
+<div align="center">
+<br>
+<img width="200" src="https://github.com/Tatsumi0000/Wording/blob/develop/icons/AppIcon.png" alt="electron-vue">
+  
+  [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+  
+<br>
+</div>
+
 # wording
 
 > An electron-vue project
 
-#### Build Setup
+
+#### Build Setup(yarn)
+
+``` bash
+# install dependencies
+yarn
+
+# serve with hot reload at localhost:9080
+yarn run dev
+
+# build electron application for production
+yarn run build
+
+
+```
+
+#### Build Setup(npm)
 
 ``` bash
 # install dependencies

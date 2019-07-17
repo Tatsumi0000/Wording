@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Tatsumi0000 <ti18027@student.miyazaki-u.ac.jp>",
   "description": "An electron-vue project",
-  "license": null,
+  "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
@@ -23,7 +23,8 @@
       "output": "build"
     },
     "files": [
-      "dist/electron/**/*"
+      "dist/electron/**/*",
+      "./icons/**/*"
     ],
     "dmg": {
       "contents": [
@@ -41,13 +42,13 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/icon.icns"
+      "icon": "./icons/AppIcon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "./icons/AppIcon.ico"
     },
     "linux": {
-      "icon": "build/icons"
+      "icon": "./icons/AppIcon.icns"
     }
   },
   "dependencies": {
@@ -74,7 +75,7 @@
     "chalk": "^2.4.1",
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.6",
-    "css-loader": "^0.28.11",
+    "css-loader": "^3.0.0",
     "del": "^3.0.0",
     "devtron": "^1.4.0",
     "electron": "^2.0.4",
@@ -86,7 +87,9 @@
     "mini-css-extract-plugin": "0.4.0",
     "multispinner": "^0.2.1",
     "node-loader": "^0.6.0",
-    "style-loader": "^0.21.0",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "url-loader": "^1.0.1",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^15.2.4",
