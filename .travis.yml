@@ -5,16 +5,11 @@ matrix:
       language: node_js
       node_js: "10"
 
-env:
-  # Node はコマンドを個別に実行してインストールするため、ここでバージョンを指定する
-  # - NODE_VERSION="10.15.1"
-
 # インストールする前に実行する
 before_install:
-  - node --version
   - brew install yarn
   - brew install wine
-  # - brwe install npm
+
 install:
   - yarn install
 
