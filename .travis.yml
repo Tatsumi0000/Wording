@@ -19,7 +19,7 @@ deploy:
   # fileでワイルドカードを使うために必要らしい
   file_glob: true
   # buildフォルダ内のzipファイル全部
-  file: 'build/*.{zip}'
+  file: 'build/*.{exe,zip}'
   on:
     tags: false
     branch: master
