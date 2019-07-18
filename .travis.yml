@@ -18,6 +18,6 @@ deploy:
   # buildフォルダ内のzipファイル全部
   file: 'build/*.{zip}'
   on:
-    tags: true
+    tags: false
     branch: master
     repo: Tatsumi0000/Wording
