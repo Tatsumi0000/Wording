@@ -20,8 +20,7 @@ deploy:
   file_glob: true
   # buildフォルダ内のzipファイル全部
   file: 
-  - 'build/*.zip'
-  - 'build/*.exe'
+  - 'build/wording-0.0.1-mac.zip'
   on:
     tags: false
     branch: master
