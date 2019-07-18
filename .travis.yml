@@ -17,6 +17,6 @@ deploy:
     secure: XoEb68Pdvph3VefvWvwlw4Ow0/TDBjSX014LkydRVD0VIO6B1jxAG+47NFenJErWidm/T7R7newor3dQddZnRh5GtnO50FVdqpYXjS+elt8lbr47qpPejUHmTwpxzRcCwmDoI9OlaAkWj7dRwh3jMNNh09JvY/UPbEJyrXTGa6NqzcO4hiidbuU/Z6pG0OEWLOab77kVVbwXXbTeA+OiKPHUTLcZehpWzOrixE1oQvR7oWVTN4+oGBagbeqhZcbqa4X0Kf/lZTHwjB+C+E3imYlsvcWFVpV+5tPqclfYtc0eTeVB3xHhO4kKVZ0b1zg9wdeZnnJ3aoMVSYNIgzDnf9w1//C2TwGCTU3a3L1ZLyaC7w5YMrd0XRuA5F50FmNvDyOJd36T0kywRPJ4A7El7aw3bMvHmZOEaRRRdnDnSwfmdEbvT+R/1jKScw9iNYjlCs+KdnguwxEbFxyRteU3XWxv5CQJpkdEBSpXmusxw853AwA0UKUkJUYNESSysOWYXximDlaUwS7HWR67u0/ST7XOCGiBndQLrB8JSY+68mVxTx84jPXjjQdaWtMCDUcA790UQ/AtVfFeLNuVK9pSCut1eD5xDSlE3Mys2X9cvk4k8IL5fsBO1WQ4n1mYDE2UoZiasz3kIe8q+e/T/NaK7U3hY3LMqL2uTNPYRvMDtqU=
   file: 'build/wording-*-mac.zip'
   on:
-    tags: 
+    tags: false
     branch: master
     repo: Tatsumi0000/Wording
