@@ -22,6 +22,7 @@
   "build": {
     "productName": "wording",
     "appId": "com.example.yourapp",
+    "artifactName": "${productName}-${version}-${os}.${ext}",
     "directories": {
       "output": "build"
     },
